@@ -4,25 +4,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./../js/index.js"></script>
+  <script src="./../js/index.js" defer></script>
   <link rel="stylesheet" href="./../css/output.css">
   <title>Currency Exchange Rate</title>
 </head>
-<body>
-  <div class="border-4">
-    <h1>Currency Exchange Rates</h1>
-    <form>
-      <label for="base-currency">Select Base Currency:</label>
-      <select name="base-currency" id="base-currency"></select>
-      <label for="amount">Enter Amount: </label>
-      <input type="number" name="amount" id="amount" min="1" value="1">
-      <label for="exchange-currency">Select Exchange Currency:</label>
-      <select name="exchange-currency" id="exchange-currency"></select>
-      <button type="submit" class="">Submit</button>
-    </form>
-    <p id="results"></p>
-    <p id="conversion-table"></p>
-    <p id="error"></p>
+<body class="bg-blue-500">
+  <div class="container h-screen border-4 mx-auto">
+    <div class="border-4">
+      <h1>Currency Exchange Rates</h1>
+      <form>
+        <div>
+          <label for="base-currency">Select Base Currency:</label>
+          <select name="base-currency" id="base-currency"></select>
+        </div>
+        <div>
+          <label for="amount">Enter Amount: </label>
+          <input type="number" name="amount" id="amount" min="1" value="1">
+        </div>
+        <div>
+          <label for="exchange-currency">Select Exchange Currency:</label>
+          <select name="exchange-currency" id="exchange-currency"></select>
+        </div>
+        <button type="submit" class="">Submit</button>
+      </form>
+      <p id="results"></p>
+      <p id="conversion-table"></p>
+      <p id="error"></p>
+    </div>
   </div>
 </body>
 </html>
