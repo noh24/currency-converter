@@ -22,7 +22,7 @@ export function printRates(baseCurrency) {
   tableHeader2.innerText = 'Exchange Currency';
   tableHeader3.innerText = 'Exchange Rate';
   table.append(tableHeader, tableHeader2, tableHeader3);
-  for (const [key, value] of Object.keys(sessionStorage)) {
+  for (const [key, value] of Object.entries(sessionStorage)) {
     const tableData = document.createElement('td');
     const tableData2 = document.createElement('td');
     const tableData3 = document.createElement('td');
