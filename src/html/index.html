@@ -4,25 +4,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather</title>
+  <title>Currency Exchange Rate</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Get Weather Conditions From Anywhere!</h1>
-    <p>To get the current weather conditions for a location, please enter the city name or the city and state separated by a comma. Here are three examples:</p>
-    <pre>
-      Portland
-      Atlanta, Georgia
-      cairo
-    </pre>
+  <div class="">
+    <h1>Currency Exchange Rates</h1>
     <form>
-      <label for="location">Enter a location:</label>
-      <input id="location" type="text" name="location">
-      <button type="submit" class="btn-success" id="weatherLocation">Get Current Temperature and Humidity</button>
+      <label for="base-currency">Select Base Currency:</label>
+      <select name="base-currency" id="base-currency"></select>
+      <label for="exchange-currency">Select Exchange Currency:</label>
+      <select name="exchange-currency" id="exchange-currency"></select>
+      <button type="submit" class="">Submit</button>
     </form>
-    <p id="weather-description"></p>
+    <p id="results"></p>
+    <p id="exchange-rates"></p>
     <p id="error"></p>
-    <p id="gif"></p>
   </div>
 </body>
 </html>
