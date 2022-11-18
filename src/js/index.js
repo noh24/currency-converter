@@ -2,6 +2,7 @@ import ExchangeRateService from './../services/exchange-rate-service.js';
 import { getExchangeRate } from './exchange-rate.js';
 
 window.addEventListener('load', function() {
+  this.sessionStorage.clear();
   addSelectBoxes();
   document.querySelector('form').addEventListener('submit', handleSubmission);
 });
