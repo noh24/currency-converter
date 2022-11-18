@@ -1,5 +1,6 @@
 import ExchangeRateService from './../services/exchange-rate-service.js';
 import { getExchangeRate, calculateExchange } from './exchange-rate.js';
+import './../css/output.css';
 
 window.addEventListener('load', function() {
   this.sessionStorage.clear();
