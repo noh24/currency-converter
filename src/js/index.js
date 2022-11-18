@@ -2,6 +2,7 @@ import ExchangeRateService from './../services/exchange-rate-service.js';
 import { getExchangeRate, calculateExchange } from './exchange-rate.js';
 
 window.addEventListener('load', function() {
+  this.sessionStorage.clear();
   addSelectBoxes();
   document.querySelector('form').addEventListener('submit', handleSubmission);
 });
@@ -41,12 +42,12 @@ function handleSubmission(e) {
   const baseCurrency = document.getElementById('base-currency').value;
   const amount = document.getElementById('amount').value;
   const exchangeCurrency = document.getElementById('exchange-currency').value;
-  if (sessionStorage[baseCurrency] !== amount) {
+  if (sessionStorage[baseCurrency] !== "1") {
     getExchangeRate(baseCurrency, amount, exchangeCurrency);
   } else {
     calculateExchange(baseCurrency, amount, exchangeCurrency);
     printRates(baseCurrency);
-    console.log('fu');
+    console.log('fuc');
   }
 }
 
