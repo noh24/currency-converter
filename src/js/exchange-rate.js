@@ -1,5 +1,5 @@
 import ExchangeRateService from "./../services/exchange-rate-service";
-import { printError, printResults } from "./index.js";
+import { printError, printResults, printRates } from "./index.js";
 
 export async function getExchangeRate(baseCurrency, amount, exchangeCurrency) {
   const response = await ExchangeRateService.getExchangeRate(baseCurrency);
@@ -8,6 +8,7 @@ export async function getExchangeRate(baseCurrency, amount, exchangeCurrency) {
   } else {
     storeSession(response);
     calculateExchange(baseCurrency, amount, exchangeCurrency);
+    printRates(baseCurrency);
   }
 }
 
