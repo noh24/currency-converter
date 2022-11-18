@@ -24,8 +24,7 @@ You will have the option to choose base currency and the desired currency.
   $ cd exchange-rate
   $ npm install
   $ npm run start
-  ```
-__Note:__ You can run Jest with `npm run test`.  
+  ```  
 ## Known bugs
 * _No known bugs_.
 
