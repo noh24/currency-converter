@@ -47,7 +47,6 @@ function handleSubmission(e) {
   } else {
     calculateExchange(baseCurrency, amount, exchangeCurrency);
     printRates(baseCurrency);
-    console.log('fuc');
   }
 }
 
