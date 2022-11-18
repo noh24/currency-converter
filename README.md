@@ -1,7 +1,7 @@
 # Project Name
 By Brian Noh  
-Epicodus Independent Project: 
-_Currently not deployed_: [Check out the project here](deployed.github.com)
+Epicodus Independent Project: Exchange Rate     
+_Currently not deployed_: [Check out the project here](noh24.github.com/exchange-rate)
 
 ## Technologies Used  
 * HTML
@@ -9,28 +9,23 @@ _Currently not deployed_: [Check out the project here](deployed.github.com)
 * JavaScript
 * Node.js
 * Web API
+* Jest
 
 ## Description
-
+This webpage converts base currency to desired currency using [Exchange Rate API](https://www.exchangerate-api.com/).  
+You will have the option to choose base currency and the desired currency.
 
 ## Setup/Installation Requirements
 * You will need [VS Code](https://code.visualstudio.com/), [Node.js](https://nodejs.org/en/download/) and [Git](https://docs.github.com/en/get-started/quickstart/set-up-git) set up and installed.
 * Open Terminal and enter:  
   ```
   $ cd Desktop
-  $ git clone file_url
-  $ cd file-name
+  $ git clone https://github.com/noh24/exchange-rate.git
+  $ cd exchange-rate
   $ npm install
   $ npm run start
   ```
-__Or__   
-* Clone repository in Desktop through Terminal
-* Change current directory to root directory of file-name
-* Enter in Terminal:  
-  ```
-  $ npm install
-  $ npm run start
-  ```
+__Note:__ You can run Jest with `npm run test`.  
 ## Known bugs
 * _No known bugs_.
 
