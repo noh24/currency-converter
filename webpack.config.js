@@ -21,7 +21,7 @@ module.exports = {
       verbose: true
     }),
     new HtmlWebpackPlugin({
-      title: 'weather-api',
+      title: 'exchange-rate',
       template: './src/html/index.html',
       inject: 'body'
     })
