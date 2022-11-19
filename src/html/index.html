@@ -8,74 +8,75 @@
   <link rel="stylesheet" href="./../css/output.css">
   <title>Currency Exchange Rate</title>
 </head>
-<body class="bg-slate-100 w-screen font-poppins">
-  <div class="container h-screen mx-auto flex flex-col bg-slate-100 w-screen">
-    <form class="pt-4 pb-4 flex flex-col items-center  bg-blue-500">
-      <h1 class="text-4xl pt-3 pb-3 text-gray-50 font-bold text-center top-44 absolute">Currency Converter</h1>
-      <div class="flex flex-col h-96 p-8 px-16 bg-slate-100 border-2 items-center gap-8 top-2/3 relative rounded-2xl shadow-md shadow-xl">
-        <div>
-          <label for="base-currency" class="font-bold">Select Base Currency:</label><br>
-          <select name="base-currency" id="base-currency" class="w-64 rounded-xl py-2 shadow-md shadow-lg text-center"></select>
-        </div>
-        <div>
-          <label for="amount" class="font-bold">Enter Amount: </label><br>
-          <input type="number" name="amount" id="amount" min="1" value="1" class="w-64 rounded-xl py-2 shadow-md shadow-lg text-center">
-        </div>
-        <div>
-          <label for="exchange-currency" class="font-bold">Select Exchange Currency:</label><br>
-          <select name="exchange-currency" id="exchange-currency" class="w-64 rounded-xl py-2 hadow-md shadow-lg text-center bg-slate-50"></select>
-        </div>
+<body class="bg-slate-100 font-poppins p-0 m-0">
+  <form class="pt-4 h-96 pb-4 flex flex-col items-center bg-blue-500 ">
+    <h1 class="text-4xl pt-3 pb-3 text-slate-50 font-bold text-center absolute top-20">Currency Converter</h1>
+    <div class="flex flex-col p-8 px-16 bg-slate-50 border-2 items-center gap-8 rounded-2xl shadow-md shadow-xl absolute top-36">
+      <div>
+        <label for="base-currency" class="font-bold">Select Base Currency:</label><br>
+        <select name="base-currency" id="base-currency" class="w-64 rounded-xl py-2 shadow-md shadow-lg text-center bg-white"></select>
       </div>
-      <div class="z-10">
-        <button type="submit" class="py-2 px-4 rounded-full border-2 relative top-56 bg-blue-500">Convert</button>
+      <div>
+        <label for="amount" class="font-bold">Enter Amount: </label><br>
+        <input type="number" name="amount" id="amount" min="1" value="1" class="w-64 rounded-xl py-2 shadow-md shadow-lg text-center bg-white">
       </div>
-    </form>
-  </div>
-    <div class="pt-64 bg-slate-100">
-      <div id="results" class="border-2">
-        1 USD = 1 USD
+      <div>
+        <label for="exchange-currency" class="font-bold">Select Exchange Currency:</label><br>
+        <select name="exchange-currency" id="exchange-currency" class="w-64 rounded-xl py-2 hadow-md shadow-lg text-center bg-white"></select>
       </div>
-      <div id="conversion-table" class='border-2'>
-        <table>
-          <tr>
-            <th>base currency</th>
-            <th>exchange currency</th>
-            <th>conversion rate</th>
+      <button type="submit" class="py-2 px-4 rounded-full bg-blue-500">Convert</button>
+    </div>
+  </form>
+  <div class="py-64 bg-slate-50 border-black border-4 flex flex-col items-center gap-8">
+    <div id="error" class="border-2">
+      There was an Error
+    </div>
+    <div id="results" class="border-2">
+      1 USD = 1 USD
+    </div>
+    <div id="conversion-table" class="bg-blue-500 rounded-lg">
+        <table class="table-auto text-left">
+          <caption class="p-5 text-3xl">
+            Conversion Rates
+          </caption>
+          <thead class="text-blue-500 bg-slate-50">
+            <tr >
+              <th class="py-3 px-6">base currency</th>
+              <th class="py-3 px-6">exchange currency</th>
+              <th class="py-3 px-6">conversion rate</th>
+            </tr>
+          </thead>
+          <tr class="border-b-2 border-blue-200">
+            <td class="py-3 px-6">USD</td>
+            <td class="py-3 px-6">EUR</td>
+            <td class="py-3 px-6">1.123123</td>
           </tr>
-          <tr>
-            <td>USD</td>
-            <td>EUR</td>
-            <td>1.123123</td>
+          <tr class="border-b-2 border-blue-200">
+            <td class="py-3 px-6">USD</td>
+            <td class="py-3 px-6">EUR</td>
+            <td class="py-3 px-6">1.123123</td>
           </tr>
-          <tr>
-            <td>USD</td>
-            <td>EUR</td>
-            <td>1.123123</td>
+          <tr class="border-b-2 border-blue-200">
+            <td class="py-3 px-6">USD</td>
+            <td class="py-3 px-6"> EUR</td>
+            <td class="py-3 px-6">1.123123</td>
           </tr>
-          <tr>
-            <td>USD</td>
-            <td>EUR</td>
-            <td>1.123123</td>
+          <tr class="border-b-2 border-blue-200">
+            <td class="py-3 px-6">USD</td>
+            <td class="py-3 px-6">EUR</td>
+            <td class="py-3 px-6">1.123123</td>
           </tr>
-          <tr>
-            <td>USD</td>
-            <td>EUR</td>
-            <td>1.123123</td>
+          <tr class="border-b-2 border-blue-200">
+            <td class="py-3 px-6">USD</td>
+            <td class="py-3 px-6">EUR</td>
+            <td class="py-3 px-6">1.123123</td>
           </tr>
-          <tr>
-            <td>USD</td>
-            <td>EUR</td>
-            <td>1.123123</td>
-          </tr>
-          <tr>
-            <td>USD</td>
-            <td>EUR</td>
-            <td>1.123123</td>
+          <tr class="border-b-2 border-blue-200">
+            <td class="py-3 px-6">USD</td>
+            <td class="py-3 px-6">EUR</td>
+            <td class="py-3 px-6">1.123123</td>
           </tr>
         </table>
-      </div>
-      <div id="error" class="border-2">
-        There was an Error
       </div>
     </div>
 </body>
