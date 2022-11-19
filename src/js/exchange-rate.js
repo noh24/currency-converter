@@ -4,7 +4,7 @@ import { printError, printResults, printRates } from "./index.js";
 export async function getExchangeRate(baseCurrency, amount, exchangeCurrency) {
   const response = await ExchangeRateService.getExchangeRate(baseCurrency);
   if (response instanceof Error) {
-    printError(response);
+    printError(response, baseCurrency);
   } else {
     storeSession(response);
     calculateExchange(baseCurrency, amount, exchangeCurrency);
