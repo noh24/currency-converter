@@ -1,7 +1,7 @@
 # Project Name
 By Brian Noh  
-Epicodus Independent Project: Exchange Rate     
-_Currently not deployed_: [Check out the project here](noh24.github.com/exchange-rate)
+Epicodus Independent Project: Currency Converter    
+_Currently not deployed_: [Check out the project here](noh24.github.com/currency-converter)
 
 ## Technologies Used  
 * HTML
@@ -9,7 +9,7 @@ _Currently not deployed_: [Check out the project here](noh24.github.com/exchange
 * JavaScript
 * Node.js
 * Web API
-* Jest
+* Tailwind CSS
 
 ## Description
 This webpage converts base currency to desired currency using [Exchange Rate API](https://www.exchangerate-api.com/).  
@@ -20,8 +20,8 @@ You will have the option to choose base currency and the desired currency.
 * Open Terminal and enter:  
   ```
   $ cd Desktop
-  $ git clone https://github.com/noh24/exchange-rate.git
-  $ cd exchange-rate
+  $ git clone https://github.com/noh24/currency-converter.git
+  $ cd currency-converter
   $ npm install
   $ npm run start
   ```  

@@ -21,7 +21,7 @@ module.exports = {
       verbose: true
     }),
     new HtmlWebpackPlugin({
-      title: 'exchange-rate',
+      title: 'currency-converter',
       template: './src/html/index.html',
       inject: 'body'
     })
