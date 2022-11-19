@@ -9,7 +9,6 @@ window.addEventListener('load', function() {
 });
 
 export function printError(response, baseCurrency) {
-  document.getElementById('error').innerText = null;
   document.getElementById('error').classList.remove('hidden');
   if (!baseCurrency) {
     document.getElementById('error').innerText = `You did not enter a valid currency. Please enter a valid currency.`;
@@ -18,9 +17,11 @@ export function printError(response, baseCurrency) {
   }
 }
 export function printResults(convertedAmount, baseCurrency, amount, exchangeCurrency) {
-  document.getElementById('results').innerText = null;
   document.getElementById('results').classList.remove('hidden');
   const div = document.createElement('div');
+  div.classList.add('flex', 'flex-col', 'items-center', 'justify-center');
+  const divFrom = document.createElement('div');
+  divFrom.innerText = 'From';
   const div2 = document.createElement('div');
   div2.classList.add('text-5xl');
   div2.innerText = amount;
@@ -28,9 +29,9 @@ export function printResults(convertedAmount, baseCurrency, amount, exchangeCurr
   div3.classList.add('font-normal');
   div3.innerText = baseCurrency;
   const div4 = document.createElement('div');
-  div4.classList.add('text-3xl');
-  div4.innerText = '=';
+  div4.innerText = 'To';
   const div5 = document.createElement('div');
+  div5.classList.add('flex', 'flex-col', 'items-center', 'justify-center');
   const div6 = document.createElement('div');
   div6.classList.add('text-5xl');
   div6.innerText = convertedAmount;
@@ -39,7 +40,7 @@ export function printResults(convertedAmount, baseCurrency, amount, exchangeCurr
   div7.innerText = exchangeCurrency;
   div.append(div2, div3);
   div5.append(div6, div7);
-  document.getElementById('results').append(div, div4, div5);
+  document.getElementById('results').append(divFrom, div, div4, div5);
 }
 
 export function printRates(baseCurrency) {
@@ -86,6 +87,9 @@ export function printRates(baseCurrency) {
 }
 function handleSubmission(e) {
   e.preventDefault();
+  document.getElementById('error').classList.add('hidden');
+  document.getElementById('error').innerText = null;
+  document.getElementById('results').innerText = null;
   document.getElementById('conversion-table').innerText = null;
   const baseCurrency = document.getElementById('base-currency').value;
   const amount = document.getElementById('amount').value;
