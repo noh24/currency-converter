@@ -561,6 +561,14 @@ video {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 .gap-8 {
   gap: 2rem;
 }
@@ -679,11 +687,6 @@ video {
 
 .font-poppins {
   font-family: Poppins, sans-serif;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
 }
 
 .text-5xl {
