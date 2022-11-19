@@ -8,29 +8,30 @@
   <link rel="stylesheet" href="./../css/output.css">
   <title>Currency Exchange Rate</title>
 </head>
-<body class="bg-gradient-to-tl from-blue-700 to-blue-500 font-poppins border-4">
-  <div class="container h-screen border-4 mx-auto flex flex-col">
-    <form class="border-4 pt-4 pb-4 flex flex-col items-center">
-      <h1 class="text-4xl pt-32 pb-3 text-gray-50 font-bold text-center top-0 absolute">Currency Exchange Rates</h1>
-      <div class="flex flex-col p-8 w- bg-gray-50 border-2 border-red-500 gap-8 relative top-2/3 rounded-2xl ">
+<body class="bg-slate-100 w-screen font-poppins">
+  <div class="container h-screen mx-auto flex flex-col bg-slate-100 w-screen">
+    <form class="pt-4 pb-4 flex flex-col items-center  bg-blue-500">
+      <h1 class="text-4xl pt-3 pb-3 text-gray-50 font-bold text-center top-44 absolute">Currency Converter</h1>
+      <div class="flex flex-col h-96 p-8 px-16 bg-slate-100 border-2 items-center gap-8 top-2/3 relative rounded-2xl shadow-md shadow-xl">
         <div>
-          <label for="base-currency" class="font-bold">Select Base Currency:</label>
-          <select name="base-currency" id="base-currency"></select>
+          <label for="base-currency" class="font-bold">Select Base Currency:</label><br>
+          <select name="base-currency" id="base-currency" class="w-64 rounded-xl py-2 shadow-md shadow-lg text-center"></select>
         </div>
         <div>
-          <label for="amount" class="font-bold">Enter Amount: </label>
-          <input type="number" name="amount" id="amount" min="1" value="1">
+          <label for="amount" class="font-bold">Enter Amount: </label><br>
+          <input type="number" name="amount" id="amount" min="1" value="1" class="w-64 rounded-xl py-2 shadow-md shadow-lg text-center">
         </div>
         <div>
-          <label for="exchange-currency" class="font-bold">Select Exchange Currency:</label>
-          <select name="exchange-currency" id="exchange-currency"></select>
-        </div>
-        <div>
-          <button type="submit" class="py-1 px-2 rounded-full border-2">Submit</button>
+          <label for="exchange-currency" class="font-bold">Select Exchange Currency:</label><br>
+          <select name="exchange-currency" id="exchange-currency" class="w-64 rounded-xl py-2 hadow-md shadow-lg text-center bg-slate-50"></select>
         </div>
       </div>
+      <div class="z-10">
+        <button type="submit" class="py-2 px-4 rounded-full border-2 relative top-56 bg-blue-500">Convert</button>
+      </div>
     </form>
-    <div class="mt-64">
+  </div>
+    <div class="pt-64 bg-slate-100">
       <div id="results" class="border-2">
         1 USD = 1 USD
       </div>
@@ -77,6 +78,5 @@
         There was an Error
       </div>
     </div>
-  </div>
 </body>
 </html>
