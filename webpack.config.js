@@ -36,13 +36,13 @@ module.exports = {
         ]
       },
       {
-        test: /\.(gif|png|avif|jpe?g)$/,
+        test: /\.(gif|png|avif|jpe?g|ttf)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'assets/images/'
+              outputPath: 'assets/fonts/'
             }
           }
         ]
