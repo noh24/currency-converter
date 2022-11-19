@@ -8,12 +8,40 @@ window.addEventListener('load', function() {
   document.querySelector('form').addEventListener('submit', handleSubmission);
 });
 
-export function printError(response) {
-  document.getElementById('error').innerText = `There was an error with ExchangeRate-API: ${response}`;
+export function printError(response, baseCurrency) {
+  document.getElementById('error').innerText = null;
+  document.getElementById('error').classList.remove('hidden');
+  if (!baseCurrency) {
+    document.getElementById('error').innerText = `You did not enter a valid currency. Please enter a valid currency.`;
+  } else {
+    document.getElementById('error').innerText = `There was an error with ExchangeRate-API: ${response}`;
+  }
 }
 export function printResults(convertedAmount, baseCurrency, amount, exchangeCurrency) {
-  document.getElementById('results').innerText = `${amount} ${baseCurrency} = ${convertedAmount} ${exchangeCurrency}`;
+  document.getElementById('results').innerText = null;
+  document.getElementById('results').classList.remove('hidden');
+  const div = document.createElement('div');
+  const div2 = document.createElement('div');
+  div2.classList.add('text-5xl');
+  div2.innerText = amount;
+  const div3 = document.createElement('div');
+  div3.classList.add('font-normal');
+  div3.innerText = baseCurrency;
+  const div4 = document.createElement('div');
+  div4.classList.add('text-3xl');
+  div4.innerText = '=';
+  const div5 = document.createElement('div');
+  const div6 = document.createElement('div');
+  div6.classList.add('text-5xl');
+  div6.innerText = convertedAmount;
+  const div7 = document.createElement('div');
+  div7.classList.add('font-normal');
+  div7.innerText = exchangeCurrency;
+  div.append(div2, div3);
+  div5.append(div6, div7);
+  document.getElementById('results').append(div, div4, div5);
 }
+
 export function printRates(baseCurrency) {
   const conversionTable = document.getElementById('conversion-table');
   const table = document.createElement('table');
@@ -25,6 +53,9 @@ export function printRates(baseCurrency) {
   const tableHeader = document.createElement('th');
   const tableHeader2 = document.createElement('th');
   const tableHeader3 = document.createElement('th');
+  tableHeader.classList.add( 'py-3', 'px-6');
+  tableHeader2.classList.add( 'py-3', 'px-6');
+  tableHeader3.classList.add( 'py-3', 'px-6');
   tableHeader.innerText = 'Base Currency';
   tableHeader2.innerText = 'Exchange Currency';
   tableHeader3.innerText = 'Exchange Rate';
