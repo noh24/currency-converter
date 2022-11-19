@@ -17,13 +17,20 @@ export function printResults(convertedAmount, baseCurrency, amount, exchangeCurr
 export function printRates(baseCurrency) {
   const conversionTable = document.getElementById('conversion-table');
   const table = document.createElement('table');
+  const caption = document.createElement('caption');
+  caption.innerText = 'Conversion Rates';
+  caption.classList.add('p-5', 'text-3xl', 'text-slate-50');
+  const tableHead = document.createElement('thead');
+  tableHead.classList.add('text-blue-500', 'bg-slate-50');
   const tableHeader = document.createElement('th');
   const tableHeader2 = document.createElement('th');
   const tableHeader3 = document.createElement('th');
   tableHeader.innerText = 'Base Currency';
   tableHeader2.innerText = 'Exchange Currency';
   tableHeader3.innerText = 'Exchange Rate';
-  table.append(tableHeader, tableHeader2, tableHeader3);
+  tableHead.append(tableHeader, tableHeader2, tableHeader3);
+  table.append(caption, tableHead);
+  let count = 0;
   for (const [key, value] of Object.entries(sessionStorage)) {
     const tableData = document.createElement('td');
     const tableData2 = document.createElement('td');
@@ -31,9 +38,18 @@ export function printRates(baseCurrency) {
     tableData.innerText = baseCurrency;
     tableData2.innerText = key;
     tableData3.innerText = value;
+    tableData.classList.add('py-3', 'px-6');
+    tableData2.classList.add('py-3', 'px-6');
+    tableData3.classList.add('py-3', 'px-6');
     const tableRow = document.createElement('tr');
+    if (count % 2 === 1) {
+      tableRow.classList.add('bg-slate-50');
+    } else {
+      tableRow.classList.add('text-slate-50');
+    }
     tableRow.append(tableData, tableData2, tableData3);
     table.append(tableRow);
+    count++;
   }
   conversionTable.append(table);
 }
