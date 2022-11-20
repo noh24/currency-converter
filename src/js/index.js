@@ -1,20 +1,18 @@
-import ExchangeRateService from './../services/exchange-rate-service.js';
 import { getExchangeRate, calculateExchange } from './exchange-rate.js';
 import './../css/output.css';
 
 window.addEventListener('load', function() {
   this.sessionStorage.clear();
-  addSelectBoxes();
+  addSelectOptions();
   document.querySelector('form').addEventListener('submit', handleSubmission);
 });
-
-export function printError(response, baseCurrency) {
+function printUserError() {
   document.getElementById('error').classList.remove('hidden');
-  if (!baseCurrency) {
-    document.getElementById('error').innerText = `You did not enter a valid currency. Please enter a valid currency.`;
-  } else {
-    document.getElementById('error').innerText = `There was an error with ExchangeRate-API: ${response}`;
-  }
+  document.getElementById('error').innerText = 'Please select a valid currency.';
+}
+export function printError(response) {
+  document.getElementById('error').classList.remove('hidden');
+  document.getElementById('error').innerText = `There was an error with ExchangeRate-API: ${response}`;
 }
 export function printResults(convertedAmount, baseCurrency, amount, exchangeCurrency) {
   document.getElementById('results').classList.remove('hidden');
@@ -42,7 +40,6 @@ export function printResults(convertedAmount, baseCurrency, amount, exchangeCurr
   div5.append(div6, div7);
   document.getElementById('results').append(divFrom, div, div4, div5);
 }
-
 export function printRates(baseCurrency) {
   const conversionTable = document.getElementById('conversion-table');
   const table = document.createElement('table');
@@ -88,34 +85,47 @@ export function printRates(baseCurrency) {
 function handleSubmission(e) {
   e.preventDefault();
   document.getElementById('error').classList.add('hidden');
+  document.getElementById('results').classList.add('hidden');
   document.getElementById('error').innerText = null;
   document.getElementById('results').innerText = null;
   document.getElementById('conversion-table').innerText = null;
   const baseCurrency = document.getElementById('base-currency').value;
   const amount = document.getElementById('amount').value;
   const exchangeCurrency = document.getElementById('exchange-currency').value;
-  if (sessionStorage[baseCurrency] !== "1") {
-    getExchangeRate(baseCurrency, amount, exchangeCurrency);
+  if (isValidCurrency(baseCurrency, exchangeCurrency)) {
+    if (sessionStorage[baseCurrency] !== "1") {
+      getExchangeRate(baseCurrency, amount, exchangeCurrency);
+    } else {
+      calculateExchange(baseCurrency, amount, exchangeCurrency);
+      printRates(baseCurrency);
+    }
   } else {
-    calculateExchange(baseCurrency, amount, exchangeCurrency);
-    printRates(baseCurrency);
+    printUserError();
   }
 }
-
-async function addSelectBoxes() {
-  let response = await ExchangeRateService.getExchangeRate('USD');
-  if (response['conversion_rates']) {
-    const keys = Object.keys(response['conversion_rates']);
-    const baseSelectTag = document.getElementById('base-currency');
-    const exchangeSelectTag = document.getElementById('exchange-currency');
-    const tagArr = [baseSelectTag, exchangeSelectTag];
-    for (let j = 0; j < tagArr.length; j++) {
-      for (let i = 0; i < keys.length; i ++) {
-        const option = document.createElement('option');
-        option.value = keys[i];
-        option.innerText = keys[i];
-        tagArr[j].append(option);
-      }
-    }
+function isValidCurrency(baseCurrency, exchangeCurrency) {
+  let optionArray = Array.from(document.querySelectorAll('#base-currency option'));
+  optionArray.shift();
+  for (let i = 0; i < optionArray.length; i++) {
+    optionArray[i] = optionArray[i].value;
   }
+  if (optionArray.includes(baseCurrency) && optionArray.includes(exchangeCurrency)) {
+    return true;
+  } 
+  return false;
+}
+function addSelectOptions() {
+  const optionArray = Array.from(document.querySelectorAll('#base-currency option'));
+  const exchangeSelect = document.getElementById('exchange-currency');
+  optionArray.forEach(option => {
+    let exchangeOption = document.createElement('option');
+    if (option === optionArray[0]) {
+      exchangeOption.innerText = option.innerText;
+      exchangeSelect.append(exchangeOption);
+    } else {
+      exchangeOption.innerText = option.innerText;
+      exchangeOption.value = option.value;
+      exchangeSelect.append(exchangeOption);
+    }
+  });
 }
